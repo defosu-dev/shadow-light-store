@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Work_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { ModeToggle } from "@/components/theme/mode-toggle";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -51,10 +50,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <>
-            {children}
-            <ModeToggle />
-          </>
+          {children}
         </ThemeProvider>
       </body>
     </html>

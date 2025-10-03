@@ -104,22 +104,22 @@ export function ProductGrid({ products, className }: IProductGridProps) {
           </Select>
 
           {/* View Mode */}
-          <div className="flex border rounded-md">
+          <div className="flex border rounded-md overflow-hidden">
             <Button
               variant={viewMode === "grid" ? "default" : "ghost"}
               size="sm"
               onClick={() => setViewMode("grid")}
-              className="rounded-r-none"
+              className="h-full w-full rounded-none"
             >
-              <Grid className="h-4 w-4" />
+              <Grid className="size-4" />
             </Button>
             <Button
               variant={viewMode === "list" ? "default" : "ghost"}
               size="sm"
               onClick={() => setViewMode("list")}
-              className="rounded-l-none"
+              className="h-full w-full rounded-none"
             >
-              <List className="h-4 w-4" />
+              <List className="size-4" />
             </Button>
           </div>
         </div>

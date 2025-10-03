@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { ProductImage } from "@/components/common/product-image";
 import { IProduct } from "@/lib/types";
 
 interface IProductCardProps {
@@ -49,11 +49,10 @@ export function ProductCard({
     >
       {/* Product Image */}
       <div className="relative aspect-square overflow-hidden">
-        <Image
+        <ProductImage
           src={product.image}
           alt={product.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full transition-transform duration-300 group-hover:scale-105"
         />
 
         {/* Overlay Actions */}

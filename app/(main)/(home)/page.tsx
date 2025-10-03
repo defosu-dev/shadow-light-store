@@ -7,8 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star, Truck, Shield, RefreshCw } from "lucide-react";
+import { featuredProducts } from "@/lib/data/mock-products";
+import { ProductImage } from "@/components/common/product-image";
 
 export const metadata: Metadata = {
   title: "Shadow Light Store - Premium E-commerce Experience",
@@ -132,25 +133,29 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((item) => (
+            {featuredProducts.map((product) => (
               <Card
-                key={item}
+                key={product.id}
                 className="group hover:shadow-lg transition-shadow"
               >
-                <div className="aspect-square bg-muted rounded-t-lg"></div>
+                <div className="aspect-square rounded-t-lg overflow-hidden">
+                  <ProductImage
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full"
+                  />
+                </div>
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle>Product {item}</CardTitle>
-                    <Badge variant="secondary">New</Badge>
+                    <CardTitle>{product.title}</CardTitle>
+                    <span className="text-sm text-muted-foreground">New</span>
                   </div>
-                  <CardDescription>
-                    High-quality product description goes here
-                  </CardDescription>
+                  <CardDescription>{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold">$99.99</span>
-                    <Button size="sm">Add to Cart</Button>
+                    <span className="text-2xl font-bold">${product.price}</span>
+                    <Button size="sm">View Details</Button>
                   </div>
                 </CardContent>
               </Card>
